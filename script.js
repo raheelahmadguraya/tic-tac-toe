@@ -39,12 +39,14 @@ const gameBoard =(() => {
     boardSpots.forEach(el => el.addEventListener('click', event => {
         const spot = event.currentTarget;
         const player = game.getCurrentPlayer();
-        if (player.getMark() == "o") {
-            spot.innerHTML = '<span class="material-symbols-outlined o">circle</span>';
-            event.currentTarget.removeEventListener('click', event);
-        } else {
-            spot.innerHTML = '<span class="material-symbols-outlined x">close</span>';
-            event.currentTarget.removeEventListener('click', event);
+        if (spot.children.length === 0) {
+            if (player.getMark() == "o") {
+                spot.innerHTML = '<span class="material-symbols-outlined o">circle</span>';
+                event.currentTarget.removeEventListener('click', event);
+            } else {
+                spot.innerHTML = '<span class="material-symbols-outlined x">close</span>';
+                event.currentTarget.removeEventListener('click', event);
+            }
         }
     }))
     console.log(boardSpots);
