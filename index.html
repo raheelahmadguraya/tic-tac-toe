@@ -13,6 +13,10 @@
         <h1>Tic Tac Toe</h1>
     </div>
     <div class="section">
+        <div class="playerOneName">
+            <label for="playerOneName"></label>
+            <input type="text" id="playerOneName" name="playerOneName" placeholder="Player 1"><br>
+        </div>
         <div class="gameBoard">
             <div class="spot" id="1"></div>
             <div class="spot" id="2"></div>
@@ -24,12 +28,22 @@
             <div class="spot" id="8"></div>
             <div class="spot" id="9"></div>
         </div>
+        <div class="playerTwoName">
+            <label for="playerTwoName"></label>
+            <input type="text" id="playerTwoName" name="playerTwoName" placeholder="Player 2"><br>
+        </div>
+        <button class="reset">reset</button>
     </div>
     <div class="footer">
         <span class="material-symbols-outlined">
             potted_plant
         </span>
         Raheel Ahmad
+    </div>
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
