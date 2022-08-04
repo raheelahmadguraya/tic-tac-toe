@@ -7,7 +7,7 @@ const Player = (mark) => {
 };
 
 const game = (() => {
-    const gameCounter = 0;
+    let gameCounter = 0;
     let turnToken = 0;
     const player1 = Player("x");
     const player2 = Player('o');
@@ -23,41 +23,57 @@ const game = (() => {
     }
 
     const getCurrentPlayer = () => {
-        const currentPlayer = setCurrentPlayer();
-        return currentPlayer;
+            const currentPlayer = setCurrentPlayer();
+            return currentPlayer;
     }
 
-    return {getCurrentPlayer};
+    const checkBoard = (gameArray) => {
+        const verifyArray = (arr, target) => target.every(v => arr.includes(v))
+
+        let winArray = [
+            ["1", "2", "3"],
+            ["4", "5", "6"],
+            ["7", "8", "9"],
+            ["1", "4", "7"],
+            ["2", "5", "8"],
+            ["3", "6", "9"],
+            ["1", "5", "9"],
+            ["3", "5", "7"]
+        ];
+
+        if (winArray.some(element => verifyArray(gameArray, element))) {
+            console.log("win");
+        }else {
+            console.log("not yet");
+        }
+    }
+
+    return {getCurrentPlayer, checkBoard};
 
 })();
 
-console.log(game.getCurrentPlayer());
-
 const gameBoard =(() => {
     const boardSpots = document.querySelectorAll(".spot");
+    let ogameArray = [];
+    let xgameArray = [];
 
     boardSpots.forEach(el => el.addEventListener('click', event => {
         const spot = event.currentTarget;
-        const player = game.getCurrentPlayer();
         if (spot.children.length === 0) {
+            const player = game.getCurrentPlayer();
             if (player.getMark() == "o") {
                 spot.innerHTML = '<span class="material-symbols-outlined o">circle</span>';
-                event.currentTarget.removeEventListener('click', event);
+                ogameArray.push(spot.id);  
+                game.checkBoard(ogameArray);
+                console.log(ogameArray);
             } else {
                 spot.innerHTML = '<span class="material-symbols-outlined x">close</span>';
-                event.currentTarget.removeEventListener('click', event);
+                xgameArray.push(spot.id);
+                game.checkBoard(xgameArray);
+                console.log(xgameArray);
             }
         }
     }))
     console.log(boardSpots);
 
 })();
-
-
-/*
-1. Start Game
-2. x starts game
-3. Switch player/icon
-3a. place icon on board in a specific spot
-4. Determine winner.
-*/
