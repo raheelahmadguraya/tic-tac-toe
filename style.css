@@ -166,3 +166,17 @@ span {
     font-size: 25px;
     text-align: center;
   }
+
+  .playerOneName,
+  .playerTwoName {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .playerOneName span,
+  .playerTwoName span {
+    justify-self: center;
+    color: #e63946;
+    font-size: 100px;
+  }

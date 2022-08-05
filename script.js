@@ -18,13 +18,13 @@ const game = (() => {
  
     if (input.value) {
         player1.playerName = input.value;
-    }else {
+    }else if (input.valuelength === 0) {
         player1.playerName = "(X) Player 1";
     }
 
     if (input2.value) {
         player2.playerName = input2.value;
-    }else {
+    }else if (input2.valuelength === 0) {
         player1.playerName = "(O) Player 1";
     }
 
