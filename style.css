@@ -60,6 +60,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    padding: 15px;
 }
 
 .gameBoard div:nth-child(5) {
@@ -128,17 +129,19 @@ span {
   }
   
   /* Modal Content */
-  .modal-content {
+  .modalContent {
+    background-color: #ffffff;
+    color: #e63946;
     margin: auto;
     padding: 20px;
     border: 1px solid #e63946;
     width: 80%;
     display: grid;
-    grid-template-columns: 1fr 30px;
+    grid-template-columns: 30px 1fr;
     column-gap: 15px;
   }
 
-  .reset {
+  #reset {
     grid-column: 2 / 3;
     background: none;
     color: inherit;
@@ -161,7 +164,5 @@ span {
     border: none;
     padding: 10px 25px 10px 25px;
     font-size: 25px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
   }
